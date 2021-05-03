@@ -149,6 +149,7 @@ def deleteOrder(request, pk):
     orderi = OrderItem.objects.filter(order=pk)
     if request.method == "POST":
         send_all_cancel(orderi, order, pk)
+        order.delete()
         return redirect('/')
     context = {'order': order, 'orderi': orderi}
     return render(request, 'orders/delete.html', context)
