@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Thank you
+{% endblock %}
+
+{% block content %}
+<h1 class="app-page-title">Order</h1>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+  <hr>
+  <br>
+  <table class="table">
+    <thead>
+      <th>Products</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Acciones</th>
+    </thead>
+    <tbody>
+    <feldset id="grou1">
+      {% for i in orderi %}
+      <tr>
+        <td>{{i.product}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.price}}</td>
+        <td>
+            <a  href="{% url "delete_product" i.id %}" >Cancelar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </feldset >
+    </tbody>
+  </table>
+  
+</div>
+{% endblock %}

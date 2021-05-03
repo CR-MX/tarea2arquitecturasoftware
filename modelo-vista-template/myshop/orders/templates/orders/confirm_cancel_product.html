@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Cancel order
+{% endblock %}
+
+{% block content %}
+    <h1>Cancel Product  {{ order.id }}</h1>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+  <hr>
+  <br>
+  <table class="table">
+    <thead>
+      <th>Products</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+       {% for i in orderi %}
+      <tr>
+        <td>{{i.product}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.price}}</td>
+      </tr>
+      {% endfor %} 
+      
+    </tbody>
+  </table>
+  <form  method="post" class="order-form">      
+    <p><input type="submit" value="Confirm" ></p>
+    <p><input type="hidden" name="Num_orden" value="{{order_id}}"></p>
+
+    {% csrf_token %}
+  </form>
+</div>
+{% endblock %}
